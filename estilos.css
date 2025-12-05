@@ -1,318 +1,361 @@
-/* ===========================
-   RESET Y TIPOGRAFÍA
-=========================== */
+:root {
+  --naranja-blender: #ea7600;
+  --dorado-blender: #dda34c;
+  --fondo-oscuro: #050505;
+  --gris-oscuro: #1f1f1f;
+}
+
+
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #0d0d0d;
+  background: radial-gradient(circle at top, #1f1f1f 0, #050505 55%);
   color: #f5f5f5;
-  line-height: 1.6;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
 
 a {
   text-decoration: none;
-  color: inherit;
 }
 
-/* ===========================
-   CONTENEDORES Y GRID
-=========================== */
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
+
+.barra-navegacion {
+  background: linear-gradient(
+    90deg,
+    #050505,
+    var(--dorado-blender),
+    #050505
+  );
 }
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+.barra-navegacion .marca span {
+  color: var(--naranja-blender);
+  font-weight: 700;
 }
 
-.col-md-6 {
-  flex: 1 1 calc(50% - 1.5rem);
+.enlace-nav.active {
+  font-weight: 600;
+  color: #ffffff !important;
+  position: relative;
 }
 
-.col-lg-3 {
-  flex: 1 1 calc(25% - 1.5rem);
+.enlace-nav.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    var(--naranja-blender),
+    #ffb347
+  );
 }
 
-@media (max-width: 768px) {
-  .col-md-6, .col-lg-3 {
-    flex: 1 1 100%;
-  }
-}
+/* SECCIONES GENERALES */
 
-/* ===========================
-   NAVBAR
-=========================== */
-.navbar {
-  background-color: #121212;
-  padding: 0.75rem 0;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 100;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-.navbar .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.navbar-brand {
-  font-weight: bold;
-  font-size: 1.25rem;
-}
-
-.navbar-toggler {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: #f5f5f5;
-  cursor: pointer;
-}
-
-.navbar-collapse {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.navbar-nav {
-  display: flex;
-  gap: 1rem;
-  list-style: none;
-}
-
-.nav-link {
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  transition: background 0.2s;
-}
-
-.nav-link:hover,
-.nav-link.active {
-  background-color: rgba(255,255,255,0.1);
-}
-
-/* NAVBAR RESPONSIVE */
-@media (max-width: 768px) {
-  .navbar-toggler {
-    display: block;
-  }
-  .navbar-collapse {
-    flex-direction: column;
-    display: none;
-    gap: 0;
-    margin-top: 0.5rem;
-  }
-  .navbar-collapse.show {
-    display: flex;
-  }
-}
-
-/* ===========================
-   SECCIONES
-=========================== */
 .seccion-contenido {
-  padding: 7rem 0 3rem; /* navbar fijo */
+  padding: 96px 0 80px;
 }
 
 .titulo-seccion {
   font-size: 2rem;
-  margin-bottom: 0.5rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
 }
 
 .subtitulo-seccion {
-  color: #aaa;
-  font-size: 0.95rem;
+  color: #a8a8a8;
+  max-width: 560px;
 }
 
-/* ===========================
-   TARJETAS
-=========================== */
-.tarjeta-blender {
-  background-color: #1a1a1a;
-  border-radius: 0.75rem;
-  padding: 1rem;
+/* PORTADA */
+
+#portada {
+  min-height: calc(100vh - 72px);
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: transform 0.2s, box-shadow 0.2s;
+  align-items: center;
+  padding-top: 96px;
+  padding-bottom: 80px;
+}
+
+.texto-portada {
+  max-width: 600px;
+}
+
+.texto-portada p {
+  color: #bdbdbd;
+}
+
+.insignia-suave {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.punto-insignia {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #1eff9c, #00a86b);
+}
+
+/* LOGO FLOTANTE */
+
+.envoltura-logo-orbita {
+  perspective: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.panel-logo-orbita {
+  padding: 14px 20px;
+  border-radius: 26px;
+  background: radial-gradient(circle at top, #262626 0, #050505 60%);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.9),
+    0 0 60px rgba(234, 118, 0, 0.5);
+  position: relative;
+  overflow: visible;
+  animation: flotar-panel 4s ease-in-out infinite alternate;
+}
+
+/* borde suave */
+.panel-logo-orbita::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 24px rgba(234, 118, 0, 0.35);
+  pointer-events: none;
+}
+
+.panel-logo-orbita:hover {
+  animation-play-state: paused;
   cursor: pointer;
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 1),
+    0 0 80px rgba(234, 118, 0, 0.7);
+}
+
+.imagen-logo-orbita {
+  display: block;
+  width: 100%;
+  max-width: 200px;     /* <= tamaño controlado */
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 18px rgba(0, 0, 0, 0.8));
+  transform-origin: center;
+  animation:
+    rotar-logo 10s ease-in-out infinite alternate,
+    brillo-logo 3s ease-in-out infinite;
+}
+
+.panel-logo-orbita:hover .imagen-logo-orbita {
+  animation-play-state: paused;
+}
+
+/* ANIMACIONES */
+
+@keyframes flotar-panel {
+  0%   { transform: translateY(-6px); }
+  100% { transform: translateY(6px); }
+}
+
+@keyframes rotar-logo {
+  0%   { transform: rotateZ(-4deg); }
+  100% { transform: rotateZ(4deg); }
+}
+
+@keyframes brillo-logo {
+  0%   { filter: drop-shadow(0 0 10px rgba(234,118,0,0.3)); }
+  50%  { filter: drop-shadow(0 0 24px rgba(234,118,0,0.8)); }
+  100% { filter: drop-shadow(0 0 10px rgba(234,118,0,0.3)); }
+}
+
+/* TARJETAS GENERALES */
+
+.tarjeta-blender {
+  background: linear-gradient(145deg, #1b1b1b, #101010);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 1.4rem;
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease, background 0.25s ease;
+  height: 100%;
 }
 
 .tarjeta-blender:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(255,255,255,0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.85);
+  border-color: rgba(234, 118, 0, 0.6);
+  background: radial-gradient(circle at top left, #232323, #050505 65%);
 }
 
-.card-header h5 {
-  margin-bottom: 0.5rem;
+.tarjeta-blender .card-header {
+  border-bottom: none;
+  background: transparent;
+  padding-bottom: 0;
 }
 
-.card-body p {
-  color: #ccc;
-  font-size: 0.85rem;
-  margin-bottom: 0.5rem;
+.tarjeta-blender .card-title {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
 }
 
-.card-body ul {
-  list-style: disc inside;
-  color: #aaa;
-  font-size: 0.85rem;
-}
+/* INSIGNIAS */
 
-/* Insignias */
 .insignia {
-  display: inline-block;
-  padding: 0.15rem 0.5rem;
-  border-radius: 0.25rem;
-  font-size: 0.7rem;
-  background-color: #333;
-  color: #fff;
-  margin-bottom: 0.25rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  padding: 0.15rem 0.6rem;
+}
+
+.insignia-nivel {
+  background: rgba(38, 87, 135, 0.2);
+  color: #e1ecff;
+  border: 1px solid rgba(38, 87, 135, 0.6);
 }
 
 .insignia-tiempo {
-  margin-top: 0.5rem;
+  background: rgba(234, 118, 0, 0.16);
+  color: #ffdcb4;
+  border: 1px solid rgba(234, 118, 0, 0.6);
 }
 
-/* ===========================
-   BOTONES Y FILTROS
-=========================== */
-.btn {
-  padding: 0.4rem 0.8rem;
-  border-radius: 0.25rem;
-  border: 1px solid #f5f5f5;
-  background: none;
-  color: #f5f5f5;
-  cursor: pointer;
-  transition: background 0.2s;
-  font-size: 0.85rem;
+/* BOTONES FILTRO */
+
+.boton-filtro {
+  border-radius: 999px;
+  border-width: 1px;
+  padding-inline: 1rem;
+  font-size: 0.9rem;
 }
 
-.btn:hover, .btn.active {
-  background-color: rgba(255,255,255,0.1);
+.boton-filtro.active {
+  background: linear-gradient(90deg, var(--naranja-blender), #ffb347);
+  border-color: transparent;
+  color: #151515;
+  font-weight: 600;
 }
 
-.btn-group {
-  display: flex;
-  gap: 0.5rem;
+/* INICIO RÁPIDO - LINEA DE PASOS */
+
+.punto-paso {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--naranja-blender);
+  background: #050505;
+  position: relative;
 }
 
-/* ===========================
-   PIE DE PÁGINA
-=========================== */
-.pie-pagina {
-  background-color: #121212;
-  padding: 1rem 0.5rem;
-  border-top: 1px solid rgba(255,255,255,0.1);
+.punto-paso::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: inherit;
+  background: radial-gradient(circle, var(--naranja-blender), #b65300);
 }
 
-.pie-flex {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 0.5rem;
-  font-size: 0.8rem;
-  color: #aaa;
+.linea-paso {
+  width: 2px;
+  flex: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(234, 118, 0, 0.9),
+    rgba(234, 118, 0, 0)
+  );
+  margin-inline: auto;
 }
 
-/* ===========================
-   MODALES
-=========================== */
-.modal {
-  display: none;
-  position: fixed;
-  top:0; left:0; right:0; bottom:0;
-  background: rgba(0,0,0,0.75);
-  justify-content: center;
-  align-items: center;
-  z-index: 200;
-  padding: 1rem;
-}
-
-.modal.show {
-  display: flex;
-}
-
-.modal-dialog {
-  background-color: #121212;
-  border-radius: 0.75rem;
-  max-width: 800px;
-  width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
-  padding: 1rem;
+.tarjeta-paso {
+  background: #141414;
+  border-radius: 1rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.03);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;  /* Esto asegurará que los elementos dentro de la tarjeta se distribuyan bien */
+  height: 100%;  /* Asegura que la tarjeta ocupe todo el alto disponible */
 }
 
-.modal-header,
-.modal-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid rgba(255,255,255,0.12);
-  padding-bottom: 0.5rem;
-  margin-bottom: 0.5rem;
-}
+/* CATEGORÍAS */
 
-.modal-footer {
-  border-top: 1px solid rgba(255,255,255,0.12);
-  border-bottom: none;
-  padding-top: 0.5rem;
-  margin-top: 0.5rem;
-}
-
-.modal-title {
-  font-size: 1.2rem;
-}
-
-.btn-close {
-  background: none;
-  border: none;
-  color: #f5f5f5;
-  font-size: 1.25rem;
+.tarjeta-categoria {
   cursor: pointer;
 }
 
-/* ===========================
-   TABLAS Y LISTAS PEQUEÑAS
-=========================== */
-.small {
-  font-size: 0.8rem;
+/* PIE DE PÁGINA */
+
+.pie-pagina {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-block: 24px;
+  background: #050505;
+  font-size: 0.85rem;
+  color: #a6a6a6;
 }
 
-.text-secondary {
-  color: #aaa;
+.pie-pagina a {
+  color: var(--naranja-blender);
 }
 
-/* ===========================
-   SEPARADORES
-=========================== */
-hr {
-  border: 0;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  margin: 2rem 0;
+.pie-pagina a:hover {
+  text-decoration: underline;
 }
 
-/* ===========================
-   OTROS
-=========================== */
-kbd {
-  background-color: #222;
-  padding: 0.1rem 0.4rem;
-  border-radius: 3px;
-  font-size: 0.8rem;
-  color: #f5f5f5;
+/* ADAPTACIÓN RESPONSIVA */
+
+@media (max-width: 991.98px) {
+  #portada {
+    text-align: center;
+  }
+
+  .texto-portada {
+    margin-inline: auto;
+  }
+
+  .imagen-logo-orbita {
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .titulo-seccion {
+    font-size: 1.6rem;
+  }
+
+  .imagen-logo-orbita {
+    max-width: 160px;
+  }
+}
+.linea-paso-invisible {
+  width: 2px;
+  flex: 1;
+  visibility: hidden;   /* NO se ve */
+  margin-inline: auto;
 }
