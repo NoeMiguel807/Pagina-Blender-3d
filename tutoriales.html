@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tutoriales - Blender Tutorial Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body data-pagina="tutoriales">
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top barra-navegacion">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2 marca" href="index.html">
+          <span>Blender</span> Tutorial Hub
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#barraMenu"
+          aria-controls="barraMenu"
+          aria-expanded="false"
+          aria-label="Alternar navegación"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="barraMenu">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link enlace-nav"
+                href="index.html"
+                data-pagina="inicio"
+              >Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link enlace-nav"
+                href="inicio-rapido.html"
+                data-pagina="inicio-rapido"
+              >Inicio rápido</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link enlace-nav"
+                href="categorias.html"
+                data-pagina="categorias"
+              >Categorías</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link enlace-nav"
+                href="tutoriales.html"
+                data-pagina="tutoriales"
+              >Tutoriales</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+  <main>
+    <section class="seccion-contenido">
+      <div class="container">
+        <div class="row align-items-end mb-4">
+          <div class="col-md-7">
+            <h1 class="titulo-seccion">Tutoriales en video</h1>
+            <p class="subtitulo-seccion">
+              Estos son ejemplos de tarjetas que se generan con JavaScript. Edita
+              el arreglo <code>listaTutoriales</code> en <strong>script.js</strong>
+              para añadir tus propios videos o ejercicios.
+            </p>
+          </div>
+          <div class="col-md-5 text-md-end">
+            <div class="btn-group" role="group" aria-label="Filtros">
+              <button
+                type="button"
+                class="btn btn-outline-light boton-filtro active"
+                data-filtro="todos"
+              >
+                Todos
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-light boton-filtro"
+                data-filtro="basico"
+              >
+                Básico
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-light boton-filtro"
+                data-filtro="modelado"
+              >
+                Modelado
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-light boton-filtro"
+                data-filtro="materiales"
+              >
+                Materiales
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-light boton-filtro"
+                data-filtro="animacion"
+              >
+                Animación
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4" id="contenedor-tutoriales">
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <footer class="pie-pagina">
+    <div class="container d-flex flex-wrap justify-content-between gap-2">
+      <span>Plantilla educativa no oficial para practicar Blender.</span>
+      <span>
+        Edita estos archivos y añade tus propios
+        <strong>.blend</strong>, videos y recursos.
+      </span>
+    </div>
+  </footer>
+
+
+  <div
+    class="modal fade"
+    id="modalTutorial"
+    tabindex="-1"
+    aria-labelledby="tituloModalTutorial"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content" style="background:#101010; color:#f5f5f5;">
+        <div class="modal-header border-secondary">
+          <h5 class="modal-title" id="tituloModalTutorial">Título del tutorial</h5>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="modal"
+            aria-label="Cerrar"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-4">
+            <div class="col-lg-7">
+              <div class="ratio ratio-16x9 mb-3">
+                <iframe
+                  id="videoModalTutorial"
+                  src=""
+                  title="Video de YouTube"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                  style="border-radius: 0.75rem; border:1px solid rgba(255,255,255,0.12);"
+                ></iframe>
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <h6 class="mb-2">Pasos del tutorial</h6>
+              <ol id="listaPasosTutorial" class="small">
+               
+              </ol>
+              <div class="small text-secondary mt-2">
+                Tip: pausa con <kbd>Espacio</kbd> y avanza cuadro a cuadro con
+                <kbd>.</kbd>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer border-secondary d-flex justify-content-between">
+          <span class="small text-secondary">
+            Reemplaza los IDs de YouTube por tus propios videos si quieres.
+          </span>
+          <button
+            type="button"
+            class="btn btn-outline-light btn-sm"
+            data-bs-dismiss="modal"
+          >
+            Cerrar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
