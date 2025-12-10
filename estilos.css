@@ -1,0 +1,604 @@
+/* ==============================================
+   Variables CSS personalizadas (custom properties)
+   ============================================== */
+:root {
+  /* Definición de colores personalizados utilizando variables CSS */
+  --naranja-blender: #ea7600; /* Color principal: naranja */
+  --dorado-blender: #dda34c;  /* Color secundario: dorado */
+  --fondo-oscuro: #050505;    /* Color de fondo oscuro */
+  --gris-oscuro: #1f1f1f;     /* Color gris oscuro */
+}
+
+/* ===================================================
+   Estilo global para todos los elementos
+   =================================================== */
+* {
+  /* Garantiza que el tamaño de los elementos se maneje de manera consistente */
+  box-sizing: border-box; 
+}
+
+/* ===================================================
+   Configuración del comportamiento de desplazamiento
+   =================================================== */
+html {
+  /* Establece un desplazamiento suave en toda la página para mejorar la experiencia de navegación */
+  scroll-behavior: smooth;
+}
+
+/* ===================================================
+   Estilo del cuerpo de la página
+   =================================================== */
+body {
+  /* Fondo de la página con un gradiente radial desde el gris oscuro al negro */
+  background: radial-gradient(circle at top, #1f1f1f 0, #050505 55%);
+  /* Color del texto en blanco */
+  color: #f5f5f5;
+  /* Fuente del sistema para mejorar la velocidad de carga y la apariencia */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  /* Altura mínima de la página para ocupar toda la pantalla */
+  min-height: 100vh;
+  /* Flexbox para organizar los elementos dentro del body */
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===================================================
+   Estilo del contenedor principal
+   =================================================== */
+main {
+  /* Asegura que el main ocupe el espacio restante en la página */
+  flex: 1;
+}
+
+/* ===================================================
+   Estilo de los enlaces
+   =================================================== */
+a {
+  /* Elimina el subrayado predeterminado de los enlaces */
+  text-decoration: none;
+}
+
+/* ===================================================
+   Estilo de la barra de navegación
+   =================================================== */
+.barra-navegacion {
+  /* Fondo de la barra de navegación con un gradiente lineal */
+  background: linear-gradient(90deg, #050505, var(--dorado-blender), #050505);
+}
+
+/* Estilo del nombre de la marca dentro de la barra de navegación */
+.barra-navegacion .marca span {
+  /* Establece el color del texto de la marca */
+  color: var(--naranja-blender);
+  /* Hace que el texto sea más negrito */
+  font-weight: 700;
+}
+
+/* ===================================================
+   Estilo de los enlaces activos en la barra de navegación
+   =================================================== */
+.enlace-nav.active {
+  /* Establece el peso de la fuente y el color del enlace cuando está activo */
+  font-weight: 600;
+  color: #ffffff !important;
+  /* Asegura que el enlace tenga un borde animado debajo cuando esté activo */
+  position: relative;
+}
+
+.enlace-nav.active::after {
+  /* Agrega una línea debajo del enlace activo */
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  border-radius: 999px; /* Bordes redondeados */
+  background: linear-gradient(90deg, var(--naranja-blender), #ffb347);
+}
+
+/* ===================================================
+   Estilos generales para las secciones del contenido
+   =================================================== */
+.seccion-contenido {
+  /* Espaciado superior e inferior */
+  padding: 96px 0 80px;
+}
+
+/* Estilo del título de las secciones */
+.titulo-seccion {
+  /* Tamaño de fuente en rem (rem = root em, relativo al tamaño de fuente del elemento raíz) */
+  font-size: 2rem;
+  /* Peso de la fuente */
+  font-weight: 600;
+  /* Espaciado debajo del título */
+  margin-bottom: 0.4rem;
+}
+
+/* Estilo del subtítulo de las secciones */
+.subtitulo-seccion {
+  /* Color gris para el subtítulo */
+  color: #a8a8a8;
+  /* Ancho máximo de 560px */
+  max-width: 560px;
+}
+
+/* ===================================================
+   Estilo para la portada de la página
+   =================================================== */
+#portada {
+  /* Altura mínima ajustada para que ocupe toda la pantalla menos la altura de la barra de navegación */
+  min-height: calc(100vh - 72px);
+  /* Flexbox para centrar el contenido dentro de la portada */
+  display: flex;
+  align-items: center;
+  /* Espaciado superior e inferior */
+  padding-top: 96px;
+  padding-bottom: 80px;
+}
+
+.texto-portada {
+  /* Ancho máximo del texto en la portada */
+  max-width: 600px;
+}
+
+/* Estilo para los párrafos dentro de la portada */
+.texto-portada p {
+  color: #bdbdbd;
+}
+
+/* Insignia suave con fondo transparente y borde sutil */
+.insignia-suave {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 999px; /* Bordes redondeados */
+  padding: 0.45rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Estilo para el punto dentro de la insignia */
+.punto-insignia {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #1eff9c, #00a86b); /* Gradiente verde */
+}
+
+/* ===================================================
+   Estilo para el logo flotante con efecto de movimiento
+   =================================================== */
+.envoltura-logo-orbita {
+  /* Perspectiva 3D para hacer que el logo se vea flotante */
+  perspective: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Panel que contiene el logo */
+.panel-logo-orbita {
+  padding: 14px 20px;
+  border-radius: 26px;
+  background: radial-gradient(circle at top, #262626 0, #050505 60%);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.9),
+    0 0 60px rgba(234, 118, 0, 0.5);
+  position: relative;
+  overflow: visible;
+  animation: flotar-panel 4s ease-in-out infinite alternate;
+}
+
+/* Estilo para la animación del panel flotante */
+.panel-logo-orbita::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 24px rgba(234, 118, 0, 0.35);
+  pointer-events: none;
+}
+
+/* Hover: al pasar el mouse sobre el logo, se pausa la animación y se aumenta la sombra */
+.panel-logo-orbita:hover {
+  animation-play-state: paused;
+  cursor: pointer;
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 1),
+    0 0 80px rgba(234, 118, 0, 0.7);
+}
+
+/* Estilo de la imagen del logo flotante */
+.imagen-logo-orbita {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  object-fit: contain; /* Ajusta la imagen para que mantenga su proporción */
+  filter: drop-shadow(0 0 18px rgba(0, 0, 0, 0.8)); /* Agrega sombra */
+  transform-origin: center; /* Establece el centro de la imagen como origen de transformaciones */
+  animation:
+    rotar-logo 10s ease-in-out infinite alternate,
+    brillo-logo 3s ease-in-out infinite;
+}
+
+/* Hover: al pasar el mouse, se pausa la animación del logo */
+.panel-logo-orbita:hover .imagen-logo-orbita {
+  animation-play-state: paused;
+}
+
+/* ===================================================
+   Definición de animaciones (keyframes)
+   =================================================== */
+@keyframes flotar-panel {
+  0%   { transform: translateY(-6px); } /* Movimiento hacia arriba */
+  100% { transform: translateY(6px); }  /* Movimiento hacia abajo */
+}
+
+@keyframes rotar-logo {
+  0%   { transform: rotateZ(-4deg); } /* Rotación hacia la izquierda */
+  100% { transform: rotateZ(4deg); }  /* Rotación hacia la derecha */
+}
+
+@keyframes brillo-logo {
+  0%   { filter: drop-shadow(0 0 10px rgba(234,118,0,0.3)); }
+  50%  { filter: drop-shadow(0 0 24px rgba(234,118,0,0.8)); }
+  100% { filter: drop-shadow(0 0 10px rgba(234,118,0,0.3)); }
+}
+
+/* ===================================================
+   Estilos para las tarjetas y categorías
+   =================================================== */
+.tarjeta-blender {
+  background: linear-gradient(145deg, #1b1b1b, #101010);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 1.4rem;
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease, background 0.25s ease;
+  height: 100%;
+}
+
+.tarjeta-blender:hover {
+  transform: translateY(-6px); /* Eleva la tarjeta al pasar el mouse */
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.85); /* Aumenta la sombra */
+  border-color: rgba(234, 118, 0, 0.6); /* Cambia el color del borde */
+  background: radial-gradient(circle at top left, #232323, #050505 65%); /* Fondo al pasar el mouse */
+}
+
+/* ===================================================
+   Estilos para las insignias dentro de las tarjetas
+   =================================================== */
+.insignia-nivel {
+  background: rgba(38, 87, 135, 0.2); /* Fondo azul translúcido */
+  color: #e1ecff; /* Texto claro */
+  border: 1px solid rgba(38, 87, 135, 0.6); /* Borde delgadito */
+}
+
+.insignia-tiempo {
+  background: rgba(234, 118, 0, 0.16); /* Fondo naranja translúcido */
+  color: #ffdcb4; /* Texto de color claro */
+  border: 1px solid rgba(234, 118, 0, 0.6); /* Borde naranja */
+}
+/* ===========================
+   CATEGORÍAS - ESTILO DE ETIQUETA PLANO
+============================= */
+.tarjeta-blender .badge {
+  background-color: transparent !important;  /* Fondo transparente */
+  color: #ffffff !important;                 /* Texto blanco */
+  border: 1px solid #ffffff !important;      /* Borde blanco */
+  border-radius: 0 !important;               /* Sin bordes redondeados */
+  font-size: 0.75rem !important;             /* Tamaño de fuente pequeño */
+  font-weight: 600 !important;               /* Peso de la fuente (negrita) */
+  padding: 0 !important;                     /* Sin relleno (el espacio interno es nulo) */
+  display: inline-block !important;          /* Hace que el badge sea un bloque en línea */
+  box-shadow: none !important;               /* Elimina cualquier sombra */
+  cursor: default !important;               /* No cambia el cursor (sin interactividad) */
+  user-select: none !important;              /* Evita que el usuario pueda seleccionar el texto */
+  text-transform: none !important;           /* Sin transformación del texto (en minúsculas) */
+}
+
+/* ===========================
+   BOTÓN "VER TUTORIAL" (estilo similar a la insignia de tiempo)
+============================= */
+.boton-ver-tutorial {
+  background-color: rgba(234, 118, 0, 0.16); /* Fondo naranja con opacidad */
+  color: #ffdcb4;                             /* Texto color crema */
+  border: 1px solid rgba(234, 118, 0, 0.6);    /* Borde naranja con opacidad */
+  transition: background-color 0.2s, color 0.2s; /* Transición suave de color y fondo */
+}
+
+.boton-ver-tutorial:hover {
+  background-color: rgba(234, 118, 0, 0.3); /* Fondo ligeramente más fuerte al pasar el mouse */
+  color: #fff;                               /* Texto blanco cuando se pasa el mouse */
+}
+
+/* ===========================
+   BOTONES FILTRO
+============================= */
+.boton-filtro {
+  border-radius: 999px;          /* Bordes totalmente redondeados */
+  border-width: 1px;             /* Borde de 1px de grosor */
+  padding-inline: 1rem;          /* Relleno horizontal de 1 rem */
+  font-size: 0.9rem;             /* Tamaño de fuente más pequeño */
+}
+
+.boton-filtro.active {
+  background: linear-gradient(90deg, var(--naranja-blender), #ffb347); /* Fondo degradado para el filtro activo */
+  border-color: transparent;       /* Sin borde cuando está activo */
+  color: #151515;                  /* Texto oscuro */
+  font-weight: 600;                /* Negrita */
+}
+
+/* ===========================
+   PAGINACIÓN
+============================= */
+.pagination .page-link {
+  background-color: transparent;  /* Fondo transparente */
+  color: #ffffff;                 /* Texto blanco */
+  border: 1px solid rgba(255, 255, 255, 0.3);  /* Borde blanco semi-transparente */
+}
+
+.pagination .page-item.active .page-link {
+  background-color: rgba(234, 118, 0, 0.16); /* Fondo naranja transparente */
+  color: #ffdcb4;                            /* Texto color crema */
+  border-color: rgba(234, 118, 0, 0.6);      /* Borde naranja con opacidad */
+}
+
+.pagination .page-item.disabled .page-link {
+  color: rgba(255, 255, 255, 0.4); /* Texto más claro cuando el botón está deshabilitado */
+}
+
+/* ===========================
+   INICIO RÁPIDO - LÍNEA DE PASOS
+============================= */
+.punto-paso {
+  width: 20px;                           /* Ancho del punto de paso */
+  height: 20px;                          /* Alto del punto de paso */
+  border-radius: 50%;                    /* Bordes redondeados (forma circular) */
+  border: 2px solid var(--naranja-blender); /* Borde de 2px con el color principal */
+  background: #050505;                   /* Fondo oscuro */
+  position: relative;                    /* Posicionamiento relativo para manejar el contenido interno */
+}
+
+.punto-paso::after {
+  content: ""; 
+  position: absolute; 
+  inset: 3px;                              /* Ajusta el tamaño del pseudo-elemento dentro del punto */
+  border-radius: inherit;                 /* Hereda el radio de los bordes */
+  background: radial-gradient(circle, var(--naranja-blender), #b65300); /* Gradiente de color en el fondo */
+}
+
+.linea-paso {
+  width: 2px;                             /* Ancho de la línea */
+  flex: 1;                                /* Estira la línea a lo largo del espacio disponible */
+  background: linear-gradient(
+    to bottom,
+    rgba(234, 118, 0, 0.9),                /* Degradado de arriba a abajo con opacidad */
+    rgba(234, 118, 0, 0)
+  );
+  margin-inline: auto;                     /* Centra la línea horizontalmente */
+}
+
+.tarjeta-paso {
+  background: #141414;                    /* Fondo oscuro para cada tarjeta de paso */
+  border-radius: 1rem;                     /* Bordes redondeados */
+  padding: 1rem 1.1rem;                    /* Relleno dentro de la tarjeta */
+  border: 1px solid rgba(255, 255, 255, 0.03); /* Borde tenue */
+  display: flex;
+  flex-direction: column;                  /* Disposición en columna */
+  justify-content: space-between;          /* Espaciado entre los elementos dentro de la tarjeta */
+  height: 100%;                            /* Altura completa */
+}
+
+/* ===================================================
+   ANIMACIONES ESPECÍFICAS PARA PRIMEROS PASOS
+   (Estos estilos solo afectarán a la página inicio-rapido.html)
+=================================================== */
+
+/* Contenedor del paso con animación inicial - CORREGIDO */
+body[data-pagina="inicio-rapido"] .contenedor-paso {
+  opacity: 1 !important; /* Cambié de 0 a 1 para que sean visibles inicialmente */
+  transform: translateY(0) !important; /* Cambié de translateY(30px) a translateY(0) */
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Cuando se haga visible (aplicado con JS) */
+body[data-pagina="inicio-rapido"] .contenedor-paso.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animación para los puntos de paso */
+body[data-pagina="inicio-rapido"] .punto-paso.animado {
+  animation: pulsoPunto 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Animación para las líneas */
+body[data-pagina="inicio-rapido"] .linea-paso.animada {
+  animation: crecerLinea 1s ease-out forwards;
+  transform-origin: top;
+  opacity: 1; /* Cambié de 0 a 1 */
+}
+
+body[data-pagina="inicio-rapido"] .linea-paso-invisible.animada {
+  opacity: 0; /* Mantener invisible pero animado */
+}
+
+/* Animación para las tarjetas */
+body[data-pagina="inicio-rapido"] .tarjeta-paso.animada {
+  animation: aparecerTarjeta 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+  opacity: 1; /* Cambié de 0 a 1 */
+  transform: translateY(0); /* Cambié de translateY(20px) a translateY(0) */
+}
+
+/* Efecto hover mejorado para tarjetas en la página de primeros pasos */
+body[data-pagina="inicio-rapido"] .tarjeta-paso:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8), 
+              0 0 20px rgba(234, 118, 0, 0.3);
+  border-color: rgba(234, 118, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+/* Indicador de paso actual (solo para primeros pasos) */
+body[data-pagina="inicio-rapido"] .indicador-paso-actual {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--naranja-blender), #ff9500);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+  border: 2px solid #050505;
+  box-shadow: 0 0 10px rgba(234, 118, 0, 0.5);
+  z-index: 2;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s ease;
+}
+
+body[data-pagina="inicio-rapido"] .contenedor-paso:hover .indicador-paso-actual {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Keyframes para las animaciones específicas de primeros pasos */
+@keyframes pulsoPunto {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.3;
+    box-shadow: 0 0 0 0 rgba(234, 118, 0, 0.8);
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+    box-shadow: 0 0 0 15px rgba(234, 118, 0, 0);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(234, 118, 0, 0);
+  }
+}
+
+@keyframes crecerLinea {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes aparecerTarjeta {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===========================
+   PIE DE PÁGINA
+============================= */
+.pie-pagina {
+  border-top: 1px solid rgba(255, 255, 255, 0.08); /* Borde superior sutil */
+  padding-block: 24px;                         /* Relleno vertical */
+  background: #050505;                        /* Fondo oscuro */
+  font-size: 0.85rem;                          /* Tamaño de fuente más pequeño */
+  color: #a6a6a6;                             /* Color gris claro */
+}
+
+.pie-pagina a {
+  color: var(--naranja-blender); /* Enlaces en el pie de página con el color principal */
+}
+
+.pie-pagina a:hover {
+  text-decoration: underline; /* Subraya los enlaces al pasar el mouse */
+}
+
+/* ===========================
+   ADAPTACIÓN RESPONSIVA
+============================= */
+@media (max-width: 991.98px) {
+  #portada {
+    text-align: center;  /* Centra el texto de la portada en pantallas pequeñas */
+  }
+
+  .texto-portada {
+    margin-inline: auto;  /* Centra el contenido de la portada */
+  }
+
+  .imagen-logo-orbita {
+    max-width: 180px; /* Reduce el tamaño máximo del logo flotante */
+  }
+  
+  /* Responsivo para primeros pasos */
+  body[data-pagina="inicio-rapido"] .contenedor-paso {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .titulo-seccion {
+    font-size: 1.6rem; /* Reduce el tamaño del título de la sección */
+  }
+
+  .imagen-logo-orbita {
+    max-width: 160px; /* Reduce aún más el tamaño del logo flotante en pantallas muy pequeñas */
+  }
+  
+  /* Responsivo para primeros pasos en móviles */
+  body[data-pagina="inicio-rapido"] .tarjeta-paso {
+    padding: 0.8rem;
+  }
+}
+
+/* ===========================
+   Línea de paso invisible
+============================= */
+.linea-paso-invisible {
+  width: 2px;                              /* Ancho de la línea invisible */
+  flex: 1;                                 /* Estira la línea a lo largo del espacio disponible */
+  visibility: hidden;                      /* Hace que la línea no sea visible */
+  margin-inline: auto;                      /* Centra la línea */
+}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;      /* Distancia del borde inferior */
+    left: 20px;        /* Colocar en la izquierda */
+    width: 65px;       /* Tamaño del botón */
+    height: 65px;
+    z-index: 999;
+}
+ 
+.whatsapp-float img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    transition: transform .2s ease-in-out;
+}
+ 
+.whatsapp-float:hover img {
+    transform: scale(1.1);
+}
+ 
